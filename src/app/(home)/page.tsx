@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Página inicial"
-};
+  title: 'Página inicial',
+}
 
 function Home() {
   return <h1>Hello, world</h1>
 }
 
-export default Home;
+export default Home
