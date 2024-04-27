@@ -1,5 +1,6 @@
-import type { Metadata } from 'next'
+import { ReactNode } from 'react'
 import { Inter } from 'next/font/google'
+import type { Metadata } from 'next'
 
 import '@/_styles/globals.css'
 import { Header } from '@/_components/Header'
@@ -11,11 +12,11 @@ export const metadata: Metadata = {
   robots: 'noindex,nofollow',
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+interface IRootLayout {
+  children: ReactNode
+}
+
+function RootLayout({ children }: IRootLayout) {
   return (
     <html lang="pt-br">
       <body className={inter.className}>
@@ -26,3 +27,5 @@ export default function RootLayout({
     </html>
   )
 }
+
+export default RootLayout
