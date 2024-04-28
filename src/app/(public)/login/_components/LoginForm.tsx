@@ -1,16 +1,17 @@
 'use client'
 
-import { FormEvent } from 'react'
+import { FormEvent, useState } from 'react'
 import { signIn } from 'next-auth/react'
-import { useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 function LoginForm() {
-  const searchParams = useSearchParams()
+  const [loginFailure, setLoginFailure] = useState(false)
 
-  const loginFailure = searchParams.get('error')
+  const router = useRouter()
 
-  const login = async (event: FormEvent<HTMLFormElement>) => {
+  const handleLogin = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    setLoginFailure(false)
 
     const formData = new FormData(event.currentTarget)
 
@@ -19,15 +20,22 @@ function LoginForm() {
       password: formData.get('password'),
     }
 
-    await signIn('credentials', {
+    const response = await signIn('credentials', {
       ...data,
-      callbackUrl: '/',
+      redirect: false,
     })
+
+    if (response?.error) {
+      setLoginFailure(true)
+      return
+    }
+
+    router.replace('/')
   }
 
   return (
     <div>
-      <form onSubmit={login} className="flex flex-col gap-4">
+      <form onSubmit={handleLogin} className="flex flex-col gap-4">
         <input
           type="email"
           name="email"

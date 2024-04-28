@@ -1,8 +1,11 @@
 import { ReactNode } from 'react'
 import { Inter } from 'next/font/google'
+import { redirect } from 'next/navigation'
+import { getServerSession } from 'next-auth'
 import type { Metadata } from 'next'
 
 import '@/_styles/globals.css'
+import { authOptions } from '@/lib/auth'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,7 +18,13 @@ interface ILoginLayout {
   children: ReactNode
 }
 
-function LoginLayout({ children }: ILoginLayout) {
+async function LoginLayout({ children }: ILoginLayout) {
+  const session = await getServerSession(authOptions)
+
+  if (session) {
+    redirect('/')
+  }
+
   return (
     <html lang="pt-br">
       <body className={inter.className}>
