@@ -1,4 +1,4 @@
-import { CalendarIcon, HomeIcon, StoreIcon } from 'lucide-react'
+import { CalendarIcon, HomeIcon, SettingsIcon, StoreIcon } from 'lucide-react'
 
 import { NavbarItem } from './NavbarItem'
 
@@ -24,6 +24,13 @@ function SidebarMain() {
           <NavbarItem href="/plantoes">
             <CalendarIcon size={14} />
             Plantões
+          </NavbarItem>
+        </li>
+
+        <li>
+          <NavbarItem href="/configuracoes">
+            <SettingsIcon size={14} />
+            Configurações
           </NavbarItem>
         </li>
       </ul>
