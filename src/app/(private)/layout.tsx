@@ -8,6 +8,7 @@ import '@/_styles/globals.css'
 import AuthProvider from '@/providers/authProvider'
 import { authOptions } from '@/lib/auth'
 import { Sidebar } from '@/_components/Sidebar'
+import { Header } from '@/_components/Header'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -31,7 +32,8 @@ async function RootLayout({ children }: IRootLayout) {
       <body className={inter.className}>
         <AuthProvider>
           <Sidebar />
-          <main className="flex-1 px-4 pb-24 pt-8 lg:px-40">{children}</main>
+          <Header />
+          <main className="pl-72 pt-16">{children}</main>
         </AuthProvider>
       </body>
     </html>
