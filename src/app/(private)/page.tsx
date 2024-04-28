@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { getServerSession } from 'next-auth'
 
 export const metadata: Metadata = {
-  title: 'Página inicial',
+  title: 'Página inicial | Plantão de Farmácia',
 }
 
 async function Home() {

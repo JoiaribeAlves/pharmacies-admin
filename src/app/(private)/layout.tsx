@@ -7,8 +7,7 @@ import type { Metadata } from 'next'
 import '@/_styles/globals.css'
 import AuthProvider from '@/providers/authProvider'
 import { authOptions } from '@/lib/auth'
-import { Header } from '@/_components/Header'
-import { Footer } from '@/_components/Footer'
+import { Sidebar } from '@/_components/Sidebar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -31,9 +30,8 @@ async function RootLayout({ children }: IRootLayout) {
     <html lang="pt-br">
       <body className={inter.className}>
         <AuthProvider>
-          <Header />
+          <Sidebar />
           <main className="flex-1 px-4 pb-24 pt-8 lg:px-40">{children}</main>
-          <Footer />
         </AuthProvider>
       </body>
     </html>
