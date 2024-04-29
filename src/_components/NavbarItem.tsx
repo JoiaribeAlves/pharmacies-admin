@@ -15,7 +15,7 @@ function NavbarItem({ href, children }: INavbarItem) {
   return (
     <Link
       href={href}
-      className={`flex items-center gap-1 rounded-lg p-3 transition-colors ${path === href ? 'bg-secondary text-primary' : ''}`}
+      className={`flex items-center gap-1 p-3 transition-colors ${path === href && 'bg-background text-foreground'}`}
     >
       {children}
     </Link>

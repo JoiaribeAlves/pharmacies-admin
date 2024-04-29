@@ -2,7 +2,7 @@ import { Avatar, AvatarImage, AvatarFallback } from '@/_components/ui/avatar'
 
 function SidebarHeader() {
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex h-16 items-center gap-2 px-3">
       <Avatar>
         <AvatarImage src="/logo-white.png" />
         <AvatarFallback>P</AvatarFallback>

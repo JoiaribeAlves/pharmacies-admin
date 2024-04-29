@@ -4,7 +4,7 @@ import { NavbarItem } from './NavbarItem'
 
 function SidebarMain() {
   return (
-    <nav className="grow py-4">
+    <nav className="grow overflow-y-auto">
       <ul className="flex flex-col">
         <li>
           <NavbarItem href="/">
