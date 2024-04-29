@@ -10,7 +10,7 @@ async function SidebarFooter() {
   return (
     <div className="flex items-center justify-between gap-2">
       <div className="flex items-center gap-2">
-        <Avatar className="bg-secondary text-secondary-foreground">
+        <Avatar>
           <AvatarImage src={session?.user.imageUrl} />
           <AvatarFallback>{session?.user?.name?.[0]}</AvatarFallback>
         </Avatar>
