@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { PharmacyTable } from './_components/PharmacyTable'
+
 export const metadata: Metadata = {
   title: 'Farmácias | Plantão de Farmácia',
 }
@@ -7,7 +9,7 @@ export const metadata: Metadata = {
 async function Pharmacies() {
   return (
     <div className="flex flex-col gap-4">
-      <h1>Farmácias</h1>
+      <PharmacyTable />
     </div>
   )
 }
