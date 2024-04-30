@@ -9,6 +9,7 @@ import AuthProvider from '@/providers/authProvider'
 import { authOptions } from '@/lib/auth'
 import { Sidebar } from '@/_components/Sidebar'
 import { Header } from '@/_components/Header'
+import { Toaster } from '@/_components/ui/sonner'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -31,6 +32,7 @@ async function RootLayout({ children }: IRootLayout) {
     <html lang="pt-br">
       <body className={inter.className}>
         <AuthProvider>
+          <Toaster />
           <Sidebar />
           <Header />
           <main className="pl-72 pt-16">{children}</main>

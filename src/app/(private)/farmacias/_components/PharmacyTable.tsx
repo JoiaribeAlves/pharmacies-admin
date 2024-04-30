@@ -56,7 +56,7 @@ async function PharmacyTable() {
                 <TableCell>
                   <EditPharmacyButton id={pharmacy.id} />
                 </TableCell>
-                <TableCell>
+                <TableCell className="text-center">
                   <DeletePharmacyButton id={pharmacy.id} />
                 </TableCell>
               </TableRow>
