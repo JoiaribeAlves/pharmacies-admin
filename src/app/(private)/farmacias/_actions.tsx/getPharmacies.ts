@@ -13,6 +13,7 @@ async function getPharmacies() {
           number: true,
           district: true,
           complement: true,
+          mapUrl: true,
         },
       },
     },
