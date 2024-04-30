@@ -23,7 +23,7 @@ model Pharmacy {
   phones    String[]
   imageUrl  String?
   address   Address?
-  Duty      Duty[]
+  duties    Duty[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
