@@ -39,7 +39,7 @@ function DeletePharmacyButton({ id }: IDeletePharmacyButton) {
 
   return (
     <Dialog>
-      <DialogTrigger className="rounded-lg bg-red-200 p-3 text-red-800 transition-colors hover:bg-red-300">
+      <DialogTrigger className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-red-200 text-red-800 transition-colors hover:bg-red-300">
         <TrashIcon size={14} />
       </DialogTrigger>
 
