@@ -21,7 +21,7 @@ async function PharmacyTable() {
   }
 
   return (
-    <div className="p-6">
+    <div>
       <Table className="overflow-hidden rounded-lg">
         <TableHeader className="bg-primary text-primary-foreground">
           <TableRow>
