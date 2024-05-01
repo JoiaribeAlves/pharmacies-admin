@@ -1,6 +1,8 @@
+import Link from 'next/link'
+import { EditIcon } from 'lucide-react'
+
 import { maskPhoneNumber } from '@/_helpers/maskPhoneNumber'
 import { getPharmacies } from '../_actions.tsx/getPharmacies'
-import { EditPharmacyButton } from './EditPharmacyButton'
 import { DeletePharmacyButton } from './DeletePharmacyButton'
 import {
   Table,
@@ -33,14 +35,14 @@ async function PharmacyTable() {
 
         {pharmacies.length === 0 ? (
           <TableBody>
-            <TableRow className="odd:bg-accent">
+            <TableRow className="odd:bg-muted">
               <TableCell colSpan={5}>Não há dados para apresentar</TableCell>
             </TableRow>
           </TableBody>
         ) : (
           <TableBody>
             {pharmacies.map((pharmacy, index) => (
-              <TableRow key={index} className="odd:bg-accent">
+              <TableRow key={index} className="even:bg-muted">
                 <TableCell>{pharmacy.name}</TableCell>
                 <TableCell>
                   {pharmacy.address?.street}, {pharmacy.address?.number},{' '}
@@ -53,8 +55,13 @@ async function PharmacyTable() {
                     </span>
                   ))}
                 </TableCell>
-                <TableCell>
-                  <EditPharmacyButton id={pharmacy.id} />
+                <TableCell className="text-center">
+                  <Link
+                    href={`/farmacias/editar/${pharmacy.id}`}
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-blue-200 text-blue-800 transition-colors hover:bg-blue-300"
+                  >
+                    <EditIcon size={14} />
+                  </Link>
                 </TableCell>
                 <TableCell className="text-center">
                   <DeletePharmacyButton id={pharmacy.id} />
