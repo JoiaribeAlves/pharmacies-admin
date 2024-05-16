@@ -13,7 +13,7 @@ async function Pharmacies() {
     <div className="flex flex-col gap-4 p-6">
       <Link
         href="/farmacias/nova"
-        className="bg-primary text-primary-foreground flex w-fit items-center gap-1 rounded-lg p-3"
+        className="flex h-10 w-fit items-center gap-1 rounded-lg border border-border px-3 transition-colors hover:bg-accent"
       >
         <PlusIcon size={14} />
         Nova Farmácia
