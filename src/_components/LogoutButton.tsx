@@ -12,7 +12,7 @@ function LogoutButton() {
   return (
     <Button
       variant="link"
-      className="text-primary-foreground h-8 p-1 text-xs"
+      className="h-8 p-1 text-xs text-primary-foreground"
       onClick={() => handleLogout()}
     >
       Sair
