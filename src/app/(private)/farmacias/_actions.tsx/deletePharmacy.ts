@@ -1,5 +1,7 @@
 'use server'
 
+import { revalidatePath } from 'next/cache'
+
 import { prismaClient } from '@/lib/prisma'
 
 async function deletePharmacy(id: string): Promise<boolean> {
@@ -21,6 +23,8 @@ async function deletePharmacy(id: string): Promise<boolean> {
         id,
       },
     })
+
+    revalidatePath('/farmacias')
 
     return true
   } catch (error) {
