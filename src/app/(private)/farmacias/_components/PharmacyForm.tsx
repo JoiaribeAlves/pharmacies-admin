@@ -17,11 +17,16 @@ import {
   FormControl,
   FormMessage,
 } from '@/_components/ui/form'
+import { editPharmacy } from '../_actions.tsx/editPharmacy'
 
 interface IPharmacyForm {
+  id?: string
   defaultValues?: {
-    pharmacy: Pharmacy
-    address: Address
+    pharmacy: Pick<Pharmacy, 'name' | 'imageUrl' | 'phones'>
+    address: Pick<
+      Address,
+      'street' | 'number' | 'district' | 'complement' | 'mapUrl'
+    >
   }
 }
 
@@ -50,7 +55,7 @@ const pharmacyFormSchema = z.object({
   }),
 })
 
-function PharmacyForm({ defaultValues }: IPharmacyForm) {
+function PharmacyForm({ id, defaultValues }: IPharmacyForm) {
   const form = useForm<z.infer<typeof pharmacyFormSchema>>({
     resolver: zodResolver(pharmacyFormSchema),
     defaultValues: {
@@ -71,7 +76,7 @@ function PharmacyForm({ defaultValues }: IPharmacyForm) {
   })
 
   const onSubmit = async (data: z.infer<typeof pharmacyFormSchema>) => {
-    if (!defaultValues) {
+    if (!id) {
       const result = await createPharmacy({
         pharmacy: {
           name: data.pharmacy.name,
@@ -101,7 +106,35 @@ function PharmacyForm({ defaultValues }: IPharmacyForm) {
         })
       }
     } else {
-      // UPDATE
+      const result = await editPharmacy({
+        pharmacy: {
+          id: id ?? '',
+          name: data.pharmacy.name,
+          imageUrl: data.pharmacy.imageUrl ?? null,
+          phones: [data.pharmacy.phone1, data.pharmacy.phone2 ?? ''],
+        },
+        address: {
+          street: data.address.street,
+          number: data.address.number,
+          district: data.address.district,
+          complement: data.address.complement ?? null,
+          mapUrl: data.address.mapUrl,
+        },
+      })
+
+      if (result) {
+        form.reset()
+
+        ShowToast({
+          title: 'Farmácia editada com sucesso!',
+          icon: <CheckIcon size={14} />,
+        })
+      } else {
+        ShowToast({
+          title: 'Não foi possível editar a farmácia!',
+          icon: <XIcon size={14} />,
+        })
+      }
     }
   }
 
