@@ -42,92 +42,74 @@ async function newPharmacy() {
       {
         name: 'RD Farma',
         phones: ['69992931044', '69992931044'],
-        imageUrl: '',
       },
       {
         name: 'Farmácia Mini Preço',
         phones: ['6935216744'],
-        imageUrl: '',
       },
       {
         name: 'Drogasil',
         phones: ['69996067132', '69996067132'],
-        imageUrl: '',
       },
       {
         name: 'Farmácia Baixo Preço',
         phones: ['6935211572'],
-        imageUrl: '',
       },
       {
         name: 'Farmácia Bernardo',
         phones: ['69993074455', '69993074455'],
-        imageUrl: '',
       },
       {
         name: 'Farmácia Mais Saúde',
         phones: ['6935211810', '69992525658'],
-        imageUrl: '',
       },
       {
         name: 'Farmadroga',
         phones: ['6935212506'],
-        imageUrl: '',
       },
       {
         name: 'Farmácia Santa Lúcia',
         phones: ['6935212520'],
-        imageUrl: '',
       },
       {
         name: 'Drogaria Ultra Popular',
         phones: ['6935214723', '69993042139'],
-        imageUrl: '',
       },
       {
         name: 'Farmácia Economize',
         phones: ['6935211460'],
-        imageUrl: '',
       },
       {
         name: 'Farmácia Mini Preço',
         phones: ['6935211460'],
-        imageUrl: '',
       },
       {
         name: 'Farmácia Preço Baixo',
         phones: ['6935212222', '69993679463'],
-        imageUrl: '',
       },
       {
         name: 'Drogaria Líder',
         phones: ['6935212635'],
-        imageUrl: '',
       },
       {
         name: 'Farmácia Unifarma',
         phones: ['6935214138'],
-        imageUrl: '',
       },
       {
         name: 'Farmácia Farminas',
         phones: ['6935213020', '69993333020'],
-        imageUrl: '',
       },
       {
         name: 'Farmácia Pague Menos',
         phones: ['6935216708', '69981600011'],
-        imageUrl: '',
       },
       {
         name: 'Farmácia Preço Baixo',
         phones: ['6935213281'],
-        imageUrl: '',
       },
       {
         name: 'Drogaria Ultra Popular',
         phones: ['6935213874'],
-        imageUrl: '',
       },
     ]
 

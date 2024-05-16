@@ -33,7 +33,7 @@ model Address {
   street     String
   number     String
   district   String
-  complement String
+  complement String?
   mapUrl     String
   pharmacy   Pharmacy @relation(fields: [pharmacyId], references: [id])
   pharmacyId String   @unique
