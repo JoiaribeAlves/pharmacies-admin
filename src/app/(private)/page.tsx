@@ -2,10 +2,10 @@ import type { Metadata } from 'next'
 import { getServerSession } from 'next-auth'
 
 export const metadata: Metadata = {
-  title: 'Página inicial | Plantão de Farmácia',
+  title: 'Página inicial | Plantão de farmácia',
 }
 
-async function Home() {
+async function HomePage() {
   const session = await getServerSession()
 
   return (
@@ -15,4 +15,4 @@ async function Home() {
   )
 }
 
-export default Home
+export default HomePage
