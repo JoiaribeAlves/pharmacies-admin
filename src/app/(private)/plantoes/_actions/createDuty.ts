@@ -1,5 +1,7 @@
 'use server'
 
+import { revalidatePath } from 'next/cache'
+
 import { Duty } from '@prisma/client'
 import { prismaClient } from '@/lib/prisma'
 
@@ -16,6 +18,8 @@ async function createDuty(data: ICreateDuty) {
         pharmacyId: data.duty.pharmacyId,
       },
     })
+
+    revalidatePath('/plantoes')
 
     return true
   } catch (error) {
