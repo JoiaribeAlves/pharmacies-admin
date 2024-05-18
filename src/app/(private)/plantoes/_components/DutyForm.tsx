@@ -40,6 +40,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/_components/ui/popover'
+import { editDuty } from '../_actions/editDuty'
 
 interface IDutyForm {
   id?: string
@@ -115,7 +116,26 @@ function DutyForm({ id, defaultValues }: IDutyForm) {
         })
       }
     } else {
-      console.log(data)
+      const result = await editDuty({
+        duty: {
+          id,
+        },
+        pharmacy: {
+          id: data.pharmacy.id,
+        },
+      })
+
+      if (result) {
+        ShowToast({
+          title: 'Plantão editado com sucesso!',
+          icon: <CheckIcon size={14} />,
+        })
+      } else {
+        ShowToast({
+          title: 'Não foi possível editar o plantão!',
+          icon: <XIcon size={14} />,
+        })
+      }
     }
   }
 
