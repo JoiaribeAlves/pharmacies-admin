@@ -32,19 +32,20 @@ interface IPharmacyForm {
 
 const pharmacyFormSchema = z.object({
   pharmacy: z.object({
-    name: z.string().trim().min(1, 'Nome é obrigatório'),
+    name: z.string({ required_error: 'Nome é obrigatório' }).trim(),
     imageUrl: z.string().trim().url('URL inválida').optional(),
     phone1: z
-      .string()
+      .string({ required_error: 'Telefone fixo é obrigatório' })
       .trim()
-      .min(1, 'Telefone fixo é obrigatório')
       .length(10, 'Número de telefone inválido'),
     phone2: z.string().trim().optional(),
   }),
   address: z.object({
-    street: z.string().trim().min(1, 'Nome da rua/avenida é obrigatório'),
-    number: z.string().trim().min(1, 'Número é obrigatório'),
-    district: z.string().trim().min(1, 'Bairro é obrigatório'),
+    street: z
+      .string({ required_error: 'Nome da rua/avenida é obrigatório' })
+      .trim(),
+    number: z.string({ required_error: 'Número é obrigatório' }).trim(),
+    district: z.string({ required_error: 'Bairro é obrigatório' }).trim(),
     complement: z.string().trim().optional(),
     mapUrl: z
       .string({
@@ -144,7 +145,7 @@ function PharmacyForm({ id, defaultValues }: IPharmacyForm) {
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex flex-col gap-6 rounded-lg bg-muted p-3"
       >
-        <fieldset className="grid grid-cols-2 gap-3">
+        <fieldset className="grid gap-3 lg:grid-cols-2">
           <FormField
             control={form.control}
             name="pharmacy.name"
@@ -210,7 +211,7 @@ function PharmacyForm({ id, defaultValues }: IPharmacyForm) {
           />
         </fieldset>
 
-        <fieldset className="grid grid-cols-2 gap-3">
+        <fieldset className="grid gap-3 lg:grid-cols-2">
           <FormField
             control={form.control}
             name="address.street"
@@ -283,9 +284,9 @@ function PharmacyForm({ id, defaultValues }: IPharmacyForm) {
 
         <Button
           type="submit"
-          variant="secondary"
+          variant="default"
           disabled={form.formState.isSubmitting}
-          className="w-fit self-end px-3"
+          className="w-full px-3 lg:w-fit lg:self-end"
         >
           {form.formState.isSubmitting ? (
             <>
