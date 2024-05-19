@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { PharmacyForm } from '../_components/PharmacyForm'
 import Link from 'next/link'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeftIcon } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Nova Farmácia | Plantão de Farmácia',
@@ -9,12 +9,12 @@ export const metadata: Metadata = {
 
 async function NewPharmacy() {
   return (
-    <div className="flex flex-col gap-4 p-6">
+    <div className="flex flex-col gap-4 pt-4">
       <Link
         href="/farmacias"
         className="flex h-10 w-fit items-center gap-1 rounded-lg border border-border px-3 transition-colors hover:bg-accent"
       >
-        <ArrowLeft size={14} />
+        <ArrowLeftIcon size={14} />
         voltar
       </Link>
 

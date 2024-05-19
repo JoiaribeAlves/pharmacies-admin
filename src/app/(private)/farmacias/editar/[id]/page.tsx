@@ -1,5 +1,7 @@
-import type { Metadata } from 'next'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { ArrowLeftIcon } from 'lucide-react'
+import type { Metadata } from 'next'
 
 import { getPharmacy } from '../../_actions.tsx/getPharmacy'
 import { PharmacyForm } from '../../_components/PharmacyForm'
@@ -20,8 +22,14 @@ async function EditPharmacy({ params }: IEditPharmacy) {
   if (!pharmacy) return notFound()
 
   return (
-    <div className="flex flex-col gap-4">
-      <h1 className="text-2xl font-bold">Editar farmácia</h1>
+    <div className="flex flex-col gap-4 pt-4">
+      <Link
+        href="/farmacias"
+        className="flex h-10 w-fit items-center gap-1 rounded-lg border border-border px-3 transition-colors hover:bg-accent"
+      >
+        <ArrowLeftIcon size={14} />
+        voltar
+      </Link>
 
       <PharmacyForm
         id={params.id}

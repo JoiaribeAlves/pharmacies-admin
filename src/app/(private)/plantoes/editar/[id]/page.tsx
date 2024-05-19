@@ -22,7 +22,7 @@ async function EditDuty({ params }: IEditForm) {
   if (!duty) return notFound()
 
   return (
-    <div className="flex flex-col gap-4 p-6">
+    <div className="flex flex-col gap-4 pt-4">
       <Link
         href="/plantoes"
         className="flex h-10 w-fit items-center gap-1 rounded-lg border border-border px-3 transition-colors hover:bg-accent"
