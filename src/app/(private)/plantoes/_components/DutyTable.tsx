@@ -21,6 +21,8 @@ async function DutyTable() {
     return <></>
   }
 
+  console.log(getUserTimeZone())
+
   return (
     <div>
       <Table className="overflow-hidden rounded-lg">
