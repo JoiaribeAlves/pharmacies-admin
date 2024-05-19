@@ -1,8 +1,8 @@
 'use server'
 
 import { revalidatePath } from 'next/cache'
-
 import { Duty } from '@prisma/client'
+
 import { prismaClient } from '@/lib/prisma'
 
 interface ICreateDuty {
