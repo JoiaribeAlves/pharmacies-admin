@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { EditIcon } from 'lucide-react'
 import { formatInTimeZone } from 'date-fns-tz'
 
-import { getUserTimeZone } from '@/_helpers/getUserTimeZone'
 import { getDuties } from '../_actions/getDuties'
 import { DeleteDutyButton } from './DeleteDutyButton'
 import {
@@ -20,8 +19,6 @@ async function DutyTable() {
   if (!duties) {
     return <></>
   }
-
-  console.log(getUserTimeZone())
 
   return (
     <div>
@@ -49,7 +46,7 @@ async function DutyTable() {
                 <TableCell>
                   {formatInTimeZone(
                     duty.startAt,
-                    getUserTimeZone(),
+                    'America/Porto_Velho',
                     'dd/MM/yyyy',
                   )}
                 </TableCell>
