@@ -1,7 +1,7 @@
 'use server'
 
-import { Address, Pharmacy } from '@prisma/client'
 import { revalidatePath } from 'next/cache'
+import { Address, Pharmacy } from '@prisma/client'
 
 import { prismaClient } from '@/lib/prisma'
 
