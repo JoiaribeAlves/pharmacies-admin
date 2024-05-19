@@ -8,8 +8,8 @@ async function SidebarFooter() {
   const session = await getServerSession(authOptions)
 
   return (
-    <div className="flex h-16 items-center justify-between gap-2 px-3">
-      <div className="flex items-center gap-2">
+    <div className="flex h-14 items-center justify-between gap-1 border-t border-secondary px-3">
+      <div className="flex flex-1 items-center gap-1">
         <Avatar>
           <AvatarImage src={session?.user.imageUrl} />
           <AvatarFallback>{session?.user?.name?.[0]}</AvatarFallback>

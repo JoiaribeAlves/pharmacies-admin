@@ -7,9 +7,8 @@ import type { Metadata } from 'next'
 import '@/_styles/globals.css'
 import AuthProvider from '@/providers/authProvider'
 import { authOptions } from '@/lib/auth'
-import { Sidebar } from '@/_components/Sidebar'
-import { Header } from '@/_components/Header'
 import { Toaster } from '@/_components/ui/sonner'
+import { Header } from '@/_components/Header'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -33,9 +32,8 @@ async function RootLayout({ children }: IRootLayout) {
       <body className={inter.className}>
         <AuthProvider>
           <Toaster />
-          <Sidebar />
           <Header />
-          <main className="pl-72 pt-16">{children}</main>
+          <main className="px-4 py-14 lg:px-40">{children}</main>
         </AuthProvider>
       </body>
     </html>
