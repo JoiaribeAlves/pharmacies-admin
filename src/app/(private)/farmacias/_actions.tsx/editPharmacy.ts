@@ -1,5 +1,6 @@
 'use server'
 
+import { revalidatePath } from 'next/cache'
 import { Address, Pharmacy } from '@prisma/client'
 
 import { prismaClient } from '@/lib/prisma'
@@ -33,6 +34,8 @@ async function editPharmacy(data: IEditPharmacy): Promise<boolean> {
         },
       },
     })
+
+    revalidatePath('/farmacias')
 
     return true
   } catch (error) {
