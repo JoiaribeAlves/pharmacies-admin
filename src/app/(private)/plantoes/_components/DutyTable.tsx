@@ -20,6 +20,8 @@ async function DutyTable() {
     return <></>
   }
 
+  console.log('Início: ' + duties[0].startAt)
+
   return (
     <div>
       <Table className="overflow-hidden rounded-lg">
