@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import { EditIcon } from 'lucide-react'
-import { format } from 'date-fns'
+import { formatInTimeZone } from 'date-fns-tz'
 
+import { getUserTimeZone } from '@/_helpers/getUserTimeZone'
 import { getDuties } from '../_actions/getDuties'
 import { DeleteDutyButton } from './DeleteDutyButton'
 import {
@@ -19,8 +20,6 @@ async function DutyTable() {
   if (!duties) {
     return <></>
   }
-
-  console.log('Início: ' + duties[0].startAt)
 
   return (
     <div>
@@ -45,7 +44,13 @@ async function DutyTable() {
             {duties.map((duty, index) => (
               <TableRow key={index} className="even:bg-muted">
                 <TableCell>{duty.pharmacy.name}</TableCell>
-                <TableCell>{format(duty.startAt, 'dd/MM/yyyy')}</TableCell>
+                <TableCell>
+                  {formatInTimeZone(
+                    duty.startAt,
+                    getUserTimeZone(),
+                    'dd/MM/yyyy',
+                  )}
+                </TableCell>
                 <TableCell className="text-center">
                   <Link
                     href={`/plantoes/editar/${duty.id}`}
